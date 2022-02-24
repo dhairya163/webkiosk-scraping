@@ -4,6 +4,10 @@ import pandas as pd
 import streamlit as st
 from pathlib import Path
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
+import os
+
+os.system("apt-get install -y chromium-browser")
 
 
 def show_page():
@@ -35,7 +39,7 @@ def show_page():
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--no-sandbox')
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome("/usr/local/bin/chromedriver",options=options)
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),options=options)
     starting_rollnumber = st.session_state.startingroll
     ending_rollnumber = st.session_state.endingroll
     rollnumbers = range(int(starting_rollnumber),int(ending_rollnumber)+1)
