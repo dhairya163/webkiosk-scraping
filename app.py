@@ -35,7 +35,7 @@ def show_page():
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--no-sandbox')
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(ChromeDriverManager().install(),options=options)
+    driver = webdriver.Chrome("/usr/local/bin/chromedriver",options=options)
     starting_rollnumber = st.session_state.startingroll
     ending_rollnumber = st.session_state.endingroll
     rollnumbers = range(int(starting_rollnumber),int(ending_rollnumber)+1)
