@@ -93,7 +93,7 @@ def show_page():
           print("Saved CGPA Details for {}...".format(rollnumber))
           st.write("Saved CGPA Details for " + str(rollnumber) + "-" + str(rows[1].find_elements_by_tag_name("td")[0].text.split(":")[1].split()[0]))
           st.dataframe(df)          
-    st.write("Done")
+    st.header("Done")
     for file in os.listdir(os.getcwd()):
       if file.endswith('.csv'):
         tempdf = pd.read_csv(file)
