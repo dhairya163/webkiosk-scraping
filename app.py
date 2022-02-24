@@ -7,8 +7,8 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.utils import ChromeType
 import os
 
-os.system("apt-get install -y chromium-browser")
-os.system("apt-get install libnss3")
+# os.system("apt-get install -y chromium-browser")
+# os.system("apt-get install libnss3")
 
 
 def show_page():
@@ -40,7 +40,8 @@ def show_page():
     options.add_argument('--disable-dev-shm-usage')
     options.add_argument('--no-sandbox')
     options.add_argument("--disable-dev-shm-usage")
-    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(),options=options)
+    options.add_argument("--headless")
+    driver = webdriver.Chrome(executable_path = os.environ.get("CHROMEDRIVER_PATH"),options=options)
     starting_rollnumber = st.session_state.startingroll
     ending_rollnumber = st.session_state.endingroll
     rollnumbers = range(int(starting_rollnumber),int(ending_rollnumber)+1)
