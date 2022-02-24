@@ -8,6 +8,7 @@ from webdriver_manager.utils import ChromeType
 import os
 
 os.system("apt-get install -y chromium-browser")
+os.system("apt-get install libnss3")
 
 
 def show_page():
